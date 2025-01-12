@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Draw a blue rectangle (canvas version)</title>
+	<style>
+		body {
+		  background-color: linen;
+		  line-height: 2px;
+		}
+		
+		
+
+		h1 {
+		  color: maroon;
+		  margin-left: 40px;
+		}
+	</style>
+  </head>
+
+  <body onload="main()">
+  
+    <canvas id="canvas1" width="400" height="400">
+      Please use a browser that supports "canvas"
+    </canvas>
+	
+	<br><br>
+		<label for="v1"> v1: </label>
+		<label for="v1_x"> x </label>
+		<input type="text" id="v1_x" name="v1_x" required minlength="1" maxlength="4" size="5" />
+		<label for="v1_y"> y </label>
+		<input type="text" id="v1_y" name="v1_y" required minlength="1" maxlength="4" size="5" />
+	
+	<br><br>
+		<label for="v2"> v2: </label>
+		<label for="v2_x"> x </label>
+		<input type="text" id="v2_x" name="v2_x" required minlength="1" maxlength="4" size="5" />
+		<label for="v2_y"> y </label>
+		<input type="text" id="v2_y" name="v2_y" required minlength="1" maxlength="4" size="5" />
+	<br><br>
+	<input type="button" value="Draw v1 and v2" onclick="handleDrawEvent()" />
+	
+	<br><br>
+	<br><br>
+	<br><br>
+	<br><br>
+	<br><br>
+		<label for="operation_select"> Operation: </label>
+		<select name="Operations" id="operation_select">
+		  <option value="">--Please choose an option--</option>
+		  <option value="Add">Vector Addition</option>
+		  <option value="Subtract">Vector Subtraction</option>
+		  <option value="Multiply">Scalar-vector Multiplication</option>
+		  <option value="Divide">Scalar-vector Division</option>
+		  <option value="Magnitude">Magnitude</option>
+		  <option value="Normalize">Normalize</option>
+		  <option value="Angle Between">Angle Between</option>
+		  <option value="Area of Formed Triangle">Area of Formed Triangle</option>
+		</select>
+		<label for="scalar">  Scalar: </label>
+		<input type="text" id="scalar" name="scalar" required minlength="1" maxlength="4" size="5" />
+	
+	<br><br>
+		<input type="button" value="Draw result of operation" onclick="handleDrawOperationEvent()" />
+	
+    <script src="asg0.js"></script>
+	<script src="lib/cuon-matrix-cse160.js"></script>
+  </body>
+</html>
