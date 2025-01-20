@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Change a point color</title>
+  </head>
+
+  <body onload="main()">
+    <canvas id="webgl" width="400" height="400">
+    Please use a browser that supports "canvas"
+    </canvas>
+	
+	
+	
+	<p>
+		<button type="button" id="clearButton"> Clear </button>
+		<button type="button" id="drawPictureButton" onclick="drawPicture()"> Draw Picture </button>
+	<p>
+		<button type="button" id="pointButton"> Point </button>
+		<button type="button" id="triangleButton"> Triangle </button>
+		<button type="button" id="circleButton"> Circle </button>
+	<p>
+		<button type="button" id="customTriangleButton"> Custom Triangle </button>
+	<p>
+		<label for="mode_select"> Shape: </label>
+		<select name="Modes" id="shape_select">
+		  <option value="Click"> Click </option>
+		  <option value="Hold Down"> Hold Down </option>
+		</select>
+	<!--
+	<p>
+		<label for="shape_select"> Shape: </label>
+		<select name="Operations" id="shape_select">
+		  <option value="">--Please choose an option--</option>
+		  <option value="Point">Point</option>
+		  <option value="Triangle">Triangle</option>
+		  <option value="Circle">Circle</option>
+		</select>
+	-->
+	<p> 
+		Red <input type="range" min="0" max="100" value="100" class="slider" id="redSlider">
+	<p> 
+		Green <input type="range" min="0" max="100" value="100" class="slider" id="greenSlider">
+	<p> 
+		Blue <input type="range" min="0" max="100" value="100" class="slider" id="blueSlider">
+	<p> 
+		Size <input type="range" min="5" max="40" value="5" class="slider" id="sizeSlider">
+
+    <script src="lib/webgl-utils.js"></script>
+    <script src="lib/webgl-debug.js"></script>
+    <script src="lib/cuon-utils.js"></script>
+    
+    <script src="Point.js"></script>
+    <script src="Triangle.js"></script>
+    <script src="Circle.js"></script>
+	<script src="asg1.js"></script>
+  </body>
+</html>
