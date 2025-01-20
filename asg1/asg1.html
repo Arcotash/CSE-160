@@ -15,7 +15,8 @@
 		Fancy new thing is the "Custom Triangle", which allows you to click three points to define a triangle.
 		
 	<p>Caveats: Resets your entire canvas, can only create 1 custom triangle at a time, and there's a weird bug where a small triangle appears in the middle.
-	</p>
+	<p>Bug: Drawing points is wonky for some reason. Drawing triangles/circles will break its behavior, causing all points to converge on the
+	position of the 2nd-last shape. The only way to fix it is to reload the page. Why? I have no idea.
 		
 	<p>
 		<button type="button" id="clearButton"> Clear </button>
@@ -51,6 +52,8 @@
 		Blue <input type="range" min="0" max="100" value="100" class="slider" id="blueSlider">
 	<p> 
 		Size <input type="range" min="5" max="40" value="5" class="slider" id="sizeSlider">
+	<p>
+		Circle Segments <input type="range" min="5" max="40" value="5" class="slider" id="circleSegmentSlider">
 
     <script src="lib/webgl-utils.js"></script>
     <script src="lib/webgl-debug.js"></script>

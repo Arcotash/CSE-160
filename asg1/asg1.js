@@ -38,12 +38,12 @@ function main() {
 
 	// Register function (event handler) to be called on a mouse press
 	canvas.onmousedown = click;
-	//canvas.onmousemove = function(ev) { if (ev.buttons == 1) { click(ev); } };
+	canvas.onmousemove = function(ev) { if (ev.buttons == 1) { click(ev); } };
 	
 	gl.clearColor(0.0, 0.0, 0.0, 1.0); // Clear the entire canvas to a specific color.
 	gl.clear(gl.COLOR_BUFFER_BIT); // Clear <canvas>
 	
-	drawPicture();
+	//drawPicture();
 }
 
 
@@ -93,6 +93,7 @@ function click(ev) {
 		shape = new Triangle();
 	} else if (g_selectedShape == CIRCLE) {
 		shape = new Circle();
+		shape.segments = g_circleSegments;
 	} else if (g_selectedShape == CUSTOM_TRIANGLE) {
 		drawCustomTriangle(ev);
 		return;
@@ -134,6 +135,7 @@ var g_selectedSize = 5;
 
 
 var g_selectedShape = 0;
+var g_circleSegments = 5;
 POINT = 0;
 TRIANGLE = 1;
 CIRCLE = 2;
@@ -159,6 +161,7 @@ function addActionsForHtmlUI() {
 	document.getElementById('greenSlider').addEventListener('mouseup', function () { g_selectedColor[1] = this.value/100; });
 	document.getElementById('blueSlider').addEventListener('mouseup',  function () { g_selectedColor[2] = this.value/100; });
 	document.getElementById('sizeSlider').addEventListener('mouseup',  function () { g_selectedSize = this.value; });
+	document.getElementById('circleSegmentSlider').addEventListener('mouseup',  function () { g_circleSegments = this.value; });
 	
 }
 
@@ -307,8 +310,6 @@ function drawPicture() {
 	gl.clear(gl.COLOR_BUFFER_BIT);
 	let len = g_shapesList.length;
 	for (let i = 0; i < len; i++) {
-		
-		console.log(len);
 		g_shapesList[i].render(vertexPosArray[i]);
 	}
 	g_shapesList = [];
