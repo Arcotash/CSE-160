@@ -49,6 +49,7 @@ function drawTriangle(vertices) {
 }
 
 var g_vertexBuffer = null;
+var g_UVBuffer = null;
 function initTriangle3D() {
   // Create a buffer object
   g_vertexBuffer = gl.createBuffer();
@@ -57,14 +58,12 @@ function initTriangle3D() {
     return -1;
   }
 
-  // Bind the buffer object to target
-  gl.bindBuffer(gl.ARRAY_BUFFER, g_vertexBuffer);
+  g_UVBuffer = gl.createBuffer();
+  if (!g_UVBuffer) {
+    console.log('Failed to create the buffer object');
+    return -1;
+  }
   
-  // Assign the buffer object to a_Position variable
-  gl.vertexAttribPointer(a_Position, 3, gl.FLOAT, false, 0, 0);
-
-  // Enable the assignment to a_Position variable
-  gl.enableVertexAttribArray(a_Position);
 }
 
 

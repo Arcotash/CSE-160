@@ -225,6 +225,8 @@ function renderScene() {
 }
 
 
+var g_camera = new Camera();
+g_camera.moveLeft();
 
 function drawManekiNeko(baseCubeCoordinatesMatrix) {
 	var translateValues = [-0.5, -.5, 0];
