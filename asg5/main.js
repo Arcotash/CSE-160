@@ -164,22 +164,7 @@ function createGround() {
 
 createGround();
 
-document.addEventListener('keydown', function(event) {
-  switch (event.keyCode) {
-      case 87: // W
-          camera.position.z -= 0.1;
-          break;
-      case 65: // A
-          camera.position.x -= 0.1;
-          break;
-      case 83: // S
-          camera.position.z += 0.1;
-          break;
-      case 68: // D
-          camera.position.x += 0.1;
-          break;
-  }
-});
+
 
 
 function createCouch() {
@@ -413,11 +398,11 @@ function setupCamera() {
   const FOV = 80; const ASPECT_RATIO = 2; const NEAR_DIST = 0.1; const FAR_DIST = 100;
   const camera = new THREE.PerspectiveCamera(FOV, ASPECT_RATIO, NEAR_DIST, FAR_DIST);
 
-  camera.position.y = 0;
-  camera.position.z = 2;
+  camera.position.y = 3;
+  camera.position.z = 7;
 
   const controls = new OrbitControls(camera, canvas);
-  controls.target.set(0, 0, 1);
+  controls.target.set(0, 2, 1);
   controls.update();
   
   return camera;
