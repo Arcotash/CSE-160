@@ -1,7 +1,7 @@
-import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import {OBJLoader} from 'three/addons/loaders/OBJLoader.js';
-import {MTLLoader} from 'three/addons/loaders/MTLLoader.js';
+import * as THREE from './node_modules/three';
+import { OrbitControls } from './node_modules/three/addons/controls/OrbitControls.js';
+import {OBJLoader} from './node_modules/three/addons/loaders/OBJLoader.js';
+import {MTLLoader} from './node_modules/three/addons/loaders/MTLLoader.js';
 
 const rtWidth = 512;
 const rtHeight = 284;
