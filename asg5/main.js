@@ -69,18 +69,19 @@ const HOUR_HAND_LENGTH = 0.45;
 const hourHandGeometry = new THREE.BoxGeometry(0.05, HOUR_HAND_LENGTH, 1);
 hourHandGeometry.translate(0, -HOUR_HAND_LENGTH/2 * 0.94, 0);
 let hourHand = makeInstance(hourHandGeometry, 0x000000,  0);
+hourHand.rotation.z = 90;
 
 const MINUTE_HAND_LENGTH = HOUR_HAND_LENGTH * 1.25;
 const minuteHandGeometry = new THREE.BoxGeometry(0.03, MINUTE_HAND_LENGTH, 1);
 minuteHandGeometry.translate(0, -MINUTE_HAND_LENGTH/2 * 0.94, 0);
 let minuteHand = makeInstance(minuteHandGeometry, 0x000000,  0);
-
+minuteHand.rotation.z = 93.2;
 
 const SECOND_HAND_LENGTH = HOUR_HAND_LENGTH * 1.50;
 const secondHandGeometry = new THREE.BoxGeometry(0.02, SECOND_HAND_LENGTH, 1);
 secondHandGeometry.translate(0, -SECOND_HAND_LENGTH/2 * 0.94, 0);
 let secondHand = makeInstance(secondHandGeometry, 0xFF0000,  0);
-
+secondHand.rotation.z = 96.7;
 
 /* ############################################################## */
 
@@ -236,15 +237,20 @@ function createTV() {
 
   const TV_BASE_WIDTH = 0.5; const TV_BASE_HEIGHT = 0.05; const TV_BASE_DEPTH = 0.175;
   const TV_BASE_POSITION_HEIGHT = LEG_HEIGHT + TABLE_TOP_HEIGHT + TABLE_SIDE_HEIGHT + TV_BASE_HEIGHT;
-  const TV_BASE_ANGLE = 40;
+  const TV_BASE_ANGLE = 45 * Math.PI/180;
+  const TV_BASE_RIGHT_ANGLE = TV_BASE_ANGLE + 90 * Math.PI/180;
 
   const tvBaseMiddleGeometry = new THREE.BoxGeometry(TV_BASE_WIDTH, TV_BASE_HEIGHT, TV_BASE_DEPTH);
     let tvBaseMiddle = createColoredCube(tvBaseMiddleGeometry, 0xAAAAAA, 0);
       tvBaseMiddle.position.set(0, TV_BASE_POSITION_HEIGHT, 0);
     
     let tvBaseLeft = createColoredCube(tvBaseMiddleGeometry, 0xAAAAAA, 0);
-    tvBaseLeft.position.set(Math.cos(TV_BASE_ANGLE) * TV_BASE_WIDTH + 0.05, TV_BASE_POSITION_HEIGHT, Math.sin(TV_BASE_ANGLE) * TV_BASE_WIDTH/2);
-    tvBaseLeft.rotation.y = Math.sin(TV_BASE_ANGLE);
+    tvBaseLeft.position.set(-(Math.cos(TV_BASE_ANGLE) * TV_BASE_WIDTH), TV_BASE_POSITION_HEIGHT, Math.sin(TV_BASE_RIGHT_ANGLE) * TV_BASE_WIDTH/2);
+    tvBaseLeft.rotation.y = TV_BASE_ANGLE;
+
+    let tvBaseRight = createColoredCube(tvBaseMiddleGeometry, 0xAAAAAA, 0);
+    tvBaseRight.position.set((Math.cos(TV_BASE_RIGHT_ANGLE ) * TV_BASE_WIDTH) + 0.7, TV_BASE_POSITION_HEIGHT, Math.sin(TV_BASE_ANGLE) * TV_BASE_WIDTH/2 - 0.01);
+    tvBaseRight.rotation.y = TV_BASE_RIGHT_ANGLE;
 
   const TV_COLUMN_RADIUS = 0.03;
   const TV_COLUMN_HEIGHT = 0.2;
